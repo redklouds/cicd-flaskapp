@@ -7,8 +7,8 @@ before_install:
 notifications:
   slack: 
     rooms:
-      - redklouds1:075OXfOwTatGBCewiUwzqylS:#stacker
-      - redklouds1:075OXfOwTatGBCewiUwzqylS:#general
+      - redklouds1:075OXfOwTatGBCewiUwzqylS
+    
     on_success: always
     on_failure: always
   email:

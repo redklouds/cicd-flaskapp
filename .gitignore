@@ -3,3 +3,4 @@ mkmachine.sh
 pingSite.sh
 .travis/connectSwarm.sh
 helperscripts/
+t.sh

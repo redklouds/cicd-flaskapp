@@ -3,6 +3,11 @@ services:
   - docker
 notifications:
   slack: redklouds1:075OXfOwTatGBCewiUwzqylS
+after_script:
+  - echo "After script run here...."
+  - echo "Another command "
+  - echo ls -la
+  
 language: python
 python:
   - "3.6"

@@ -14,7 +14,7 @@ def hello():
     try:
         visits = redis.incr("counter")
     except RedisError:
-        visits = "<i>cfadsannot connect to Redis, counter disa1bled</i>"
+        visits = "<i>cannot connect to Redis, counter disa1bled</i>"
     data = display_text.generate_buzz()
     html = "<h3>Hello BOOOOB{name}! VERSION 5</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \

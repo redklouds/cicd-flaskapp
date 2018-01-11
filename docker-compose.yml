@@ -3,7 +3,7 @@ services:
   web:
     # replace username/repo:tag with your name and image details
     #image: redklouds/getstarted:part5
-    image: redklouds/webapp1:0.1
+    image: redklouds/webapp1:latest
     deploy:
       replicas: 4
       restart_policy:
@@ -75,5 +75,10 @@ services:
 #    networks:
 #      - unix:///var/run/docker.sock
 #      - local
+  watchtower:
+    image: v2tec/watchtower:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
 networks:
   webnet:

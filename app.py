@@ -16,7 +16,7 @@ def hello():
     except RedisError:
         visits = "<i>cannot connect to Redis, counter disa1bled</i>"
     data = display_text.generate_buzz()
-    html = "<h3>Hello BOOOOB{name}! VERSION 5</h3>" \
+    html = "<h3>Hello this is a dockerlized FULL Continous integrated pipline</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Visits:</b> {visits}"\
            "DATA: <h1> %s </h1>" % data

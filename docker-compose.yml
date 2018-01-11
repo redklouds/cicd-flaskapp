@@ -60,6 +60,18 @@ services:
     command: redis-server --appendonly yes
     networks:
       - webnet
+  stockminer:
+    container_name: stock_miner
+    image: redklouds/stock_miner:0.1
+    deploy:
+      #replicas: 4
+      restart_policy:
+        condition: on-failure
+    environment:
+      - PYTHONBUFFERED=0
+    #volumes:
+    #  - /home/redklouds/data:/data
+    command: python stockminer.py
   portainer:
     image: portainer/portainer
     container_name: fuckPortainer
@@ -72,14 +84,16 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /portainer-data/portainer
     command: -H unix:///var/run/docker.sock
-#    networks:
-#      - unix:///var/run/docker.sock
-#      - local
-  watchtower:
-    image: v2tec/watchtower
+  sheperd:
+    image: mazzolino/shepherd
+    container_name: shep
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+    environment:
+      - SLEEP_TIME=1m
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30
-
 networks:
   webnet:

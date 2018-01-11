@@ -20,7 +20,7 @@ def hello():
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Visits:</b> {visits}"\
            "<br><i>message from the engine api</i> <h1> %s </h1><br> scaling\
-           systems is fun" % data
+           systems is fun!!!!!!!" % data
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 
 if __name__ == "__main__":

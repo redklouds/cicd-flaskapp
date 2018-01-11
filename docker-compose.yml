@@ -1,0 +1,79 @@
+version: "3"
+services:
+  web:
+    # replace username/repo:tag with your name and image details
+    #image: redklouds/getstarted:part5
+    image: redklouds/webapp1:0.1
+    deploy:
+      replicas: 4
+      restart_policy:
+        condition: on-failure
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+#    expose:
+#      - 6969
+    environment:
+      - "VIRTUAL_HOST=sexon.lydanny.com"
+    ports:
+      - "6969:5000"
+    networks:
+      - webnet
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
+  redis:
+    image: redis
+    #replicas: 4
+    ports:
+      - "6379:6379"
+    volumes:
+    #will have problems in the below lines depending on host system if windows
+    #then make sure you have a REAl directroy ON THE SYSTEM
+    # the first half :(before colon) is persistence means taht data WILL BE
+    # STORED HERE ON THE HOST SYSTEM, (even if redis is a inmemeory db it backs
+    # up data by writing it to disk everynow and then, for the sencario that we
+    # restart this container if we store our data inside the container then the
+    # data is wiped and removed, that why we have persistent data that STAYS ON
+    # the host machine so when our new container connects we connect bnack to
+    # the old persistent data file
+    #the :(after colon) specfiies IN THE CONTAINER where do we link OUTSIDE(HOST
+    #MACHINE) to the INSIDE (container machine)
+      - /home/redklouds/data:/data
+      #- /home/data:/data
+    deploy:
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == manager]
+    command: redis-server --appendonly yes
+    networks:
+      - webnet
+  portainer:
+    image: portainer/portainer
+    container_name: fuckPortainer
+    ports:
+      - "9000:9000"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /portainer-data/portainer
+    command: -H unix:///var/run/docker.sock
+#    networks:
+#      - unix:///var/run/docker.sock
+#      - local
+networks:
+  webnet:

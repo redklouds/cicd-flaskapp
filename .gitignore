@@ -1,0 +1,5 @@
+cmachine.sh
+mkmachine.sh
+pingSite.sh
+.travis/connectSwarm.sh
+helperscripts/

@@ -2,16 +2,27 @@ sudo: required
 services:
   - docker
 notifications:
-  slack: redklouds1:075OXfOwTatGBCewiUwzqylS
+  slack: 
+    rooms:
+      - redklouds1:075OXfOwTatGBCewiUwzqylS:#stacker
+      - redklouds1:075OXfOwTatGBCewiUwzqylS:#general
+    on_success: always
+    on_failure: always
+  email:
+    recipients:
+      - dannyly199@gmail.com
+    on_success: always
+    on_failure: always
+
 after_script:
   - echo "After script run here...."
   - echo "Another command "
   - echo ls -la
-  
+  - echo $HOME  
 language: python
 python:
   - "3.6"
-install:
+
   - pip3 install -r requirements.txt
 script:
   - python3 -m pytest -v

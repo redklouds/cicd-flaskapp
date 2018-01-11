@@ -4,3 +4,5 @@ pingSite.sh
 .travis/connectSwarm.sh
 helperscripts/
 t.sh
+*.swp
+*.swo

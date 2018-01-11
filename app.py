@@ -18,7 +18,7 @@ def hello():
     data = display_text.generate_buzz()
     html = "<h3>Hello this is a dockerlized FULL Continous integrated pipline</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
-           "<b>Visits:</b> {visits}"\
+           "<b>Visits:</b> {visits}SALAVY"\
            "<br><i>message from the engine api</i> <h1> %s </h1><br> scaling\
            systems is fun!!!!!!!" % data
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)

@@ -1,7 +1,8 @@
 sudo: required
 services:
   - docker
-
+notifications:
+  slack: redklouds1:075OXfOwTatGBCewiUwzqylS
 language: python
 python:
   - "3.6"

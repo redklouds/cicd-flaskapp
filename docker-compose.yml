@@ -71,7 +71,7 @@ services:
       - PYTHONBUFFERED=0
     #volumes:
     #  - /home/redklouds/data:/data
-    command: stock_miner.py
+    command: -u stock_miner.py
   portainer:
     image: portainer/portainer
     container_name: fuckPortainer

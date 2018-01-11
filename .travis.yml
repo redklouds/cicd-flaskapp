@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 before_install:
-  - pip install -v /libs/finviz
+  - echo BEfore install
 
 notifications:
   slack: 
@@ -30,5 +30,21 @@ python:
 script:
   - python3 -m pytest -v
 
+
+
+after_script:
+  jobs:
+    include:
+      - build docker image
+      install:
+        - docker build -t redklouds/$TRAVIS_REPO_SLUG .
+        - docker run -d -rm --name test redklouds/$TRAVIS_REPO_SLUG
+      script:
+        - echo "Testing the build"
+        - docker ps | grep -q test
+      after_success:
+        - echo "Success fully builed and tested docker file"
+
+        - sh .travis/deploy_dockerhub.sh
 after_success:
   - sh .travis/deploy_dockerhub.sh

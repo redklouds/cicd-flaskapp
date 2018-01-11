@@ -19,7 +19,7 @@ def hello():
     html = "<h3>Hello this is a dockerlized FULL Continous integrated pipline</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Visits:</b> {visits}"\
-           "DATA: <h1> %s </h1>" % data
+           "<br>DATA: <h1> %s </h1>" % data
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 
 if __name__ == "__main__":

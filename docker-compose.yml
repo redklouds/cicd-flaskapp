@@ -3,7 +3,7 @@ services:
   web:
     # replace username/repo:tag with your name and image details
     #image: redklouds/getstarted:part5
-    image: redklouds/webapp1:latest
+    image: redklouds/cicd-flaskapp:latest
     deploy:
       replicas: 4
       restart_policy:

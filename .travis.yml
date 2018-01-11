@@ -1,6 +1,9 @@
 sudo: required
 services:
   - docker
+before_install:
+  - pip install -v /libs/finviz
+
 notifications:
   slack: 
     rooms:

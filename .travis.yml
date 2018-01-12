@@ -23,11 +23,10 @@ notifications:
  
 
 script: python3 -m pytest -v
-
-after_script:
+after_success:
   - docker build -t test .
   - docker run -d --name test test
   - docker ps | grep -q test
-after_success:
+after_script:
   - echo "Successfully tested docker build, pushing new image to repo now..."
   - sh .travis/deploy_dockerhub.sh

@@ -62,7 +62,7 @@ services:
       - webnet
   stockminer:
     container_name: stock_miner
-    image: redklouds/stock_miner:0.1
+    image: redklouds/stock_miner:latest
     deploy:
       #replicas: 4
       restart_policy:

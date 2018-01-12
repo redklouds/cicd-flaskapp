@@ -7,3 +7,4 @@ t.sh
 *.swp
 *.swo
 pushToGit.sh
+__pycache__/*

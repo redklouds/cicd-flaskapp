@@ -1,8 +1,6 @@
 Flask
 Redis
 pytest
-
 libs/
-
 requests
 bs4

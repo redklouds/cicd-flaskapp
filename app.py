@@ -3,7 +3,7 @@ from redis import Redis, RedisError
 import os
 import socket
 from engines import display_text
-
+from engines import display_finviz
 # Connect to Redis
 redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
@@ -16,11 +16,13 @@ def hello():
     except RedisError:
         visits = "<i>cannot connect to Redis, counter disa1bled</i>"
     data = display_text.generate_buzz()
+    finviz_data = display_finviz.showLeft()
     html = "<h3>Hello this is a dockerlized FULL Continous integrated pipline</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Visits:</b> {visits}<b>FINALLY</b>"\
            "<br><i>message from the engine api</i> <h1> %s </h1><br> scaling..\
-           systems is fun!!" % data
+           systems is fun!!<br> here's a display of another engine \
+           %s" % (data, finviz_data)
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
 sudo: required
+      #  - echo "do this after the scriupt is run"
 services:
   - docker
 
@@ -8,6 +9,7 @@ language: python
 python:
   - "3.6"
   - pip3 install -r requirements.txt
+
 notifications:
   slack: 
     rooms:

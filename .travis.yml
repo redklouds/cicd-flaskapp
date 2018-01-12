@@ -17,7 +17,12 @@ notifications:
 jobs:
   include:
     - stage: test changes
+      before_script:
+        - echo "this is before the test are run"
+
       script: python3 -m pytest -v
-  
+      after_script:
+        - echo "do this after the scriupt is run"
+
 
 

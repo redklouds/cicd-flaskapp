@@ -12,7 +12,10 @@ app = Flask(__name__, template_folder='templates')
 @app.route("/")
 def index():
     return render_template('layout.html',title='FUCfadsfasdfk you')
-
+@app.route("/finviz")
+def finviz():
+    data = display_finviz.showLeft()
+    return render_template('finviz.html', stocks=data)
 @app.route("/test")
 def hello():
     try:

@@ -49,6 +49,8 @@ the running environment(production)
 This example concludes there are alot of configurations to learn and undertand
 however please check out these tools.
 
-[travis](https://travis-ci.org/)
-[sheperd](https://github.com/djmaze/shepherd)
-
+[Travis CI](https://travis-ci.org/)
+[Sheperd](https://github.com/djmaze/shepherd)
+[Docker](https://www.docker.com/)
+[Flask](http://flask.pocoo.org/)
+[Jinja2](http://jinja.pocoo.org/)

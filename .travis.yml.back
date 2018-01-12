@@ -13,10 +13,19 @@ notifications:
   email:
     recipients:
       - dannyly199@gmail.com
+    on_success: always
+    on_failure: always
+
+after_script:
   - echo "After script run here...."
   - echo "Another command "
   - echo ls -la
   - echo $HOME  
+language: python
+python:
+  - "3.6"
+
+  - pip3 install -r requirements.txt
 script:
   - python3 -m pytest -v
 
@@ -35,3 +44,6 @@ after_script:
       after_success:
         - echo "Success fully builed and tested docker file"
 
+        - sh .travis/deploy_dockerhub.sh
+after_success:
+  - sh .travis/deploy_dockerhub.sh

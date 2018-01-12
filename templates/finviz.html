@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+	<table style="width:100%">
+		<tr>
+			<th>Index</th>
+			<th>price</th>
+			<th>Signal</th>
+			<th>Change</th>
+		</tr>
+		{% for stock in stocks %}
+		<tr>
+			<td>{{ stock.index }}</td>
+			<td>{{ stock.price }}</td>
+			<td>{{ stock.signal }}</td>
+			<td>{{ stock.change }}</td>
+		</tr>
+		
+		{% endfor %}
+
+	</table>
+
+{% endblock %}

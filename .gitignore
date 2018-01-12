@@ -8,6 +8,4 @@ t.sh
 *.swo
 pushToGit.sh
 __pycache__/*
-.travis.yml.back
-*.back
-Dockerfile.backup
+*.backup

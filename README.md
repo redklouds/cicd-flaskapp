@@ -21,11 +21,13 @@ The pipline starts at our local development system , cloning the git repo we
 begin the development, as we develop we can branch to feature branches or stay
 with master, changing the code base and checking the features on our local
 machine with docker local host machine.
+
 As we commit and push our code changes, this is sent to travis CI for unit
 testing and docker build confirmations, this is done with python pytest, to test
 our new feature builds. Travis will clone our entire repo as well as start its
 own virtual env on their services, following the defined .travis.yml
 instructions to set up the build enviroment. 
+
 Once the build environment is setup our unit test(pytest) scripts are called,
 any of the 4 stages of travis build stages that return a *non-zero* exit code
 are considered broken build:
@@ -39,6 +41,7 @@ running of the docker image does NOT return a non-zero exit code, we move to
 start building the actual image appending the latest build version tag to it.
 once the build has completed travis is instructed to upload/push the new image
 to our docker hub repo.
+
 We use shepered (very small 4mb) docker image running on our docker swarm, to
 periodically check for updates on our containers currently running on the
 cluster, if there is a new digest in our dockerhub( which is all taken care of

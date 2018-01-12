@@ -1,7 +1,7 @@
 Flask
 Redis
 pytest
-libs
+libs/
 requests
 bs4
 html5lib

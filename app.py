@@ -13,10 +13,11 @@ app = Flask(__name__, template_folder='templates')
 def index():
     return render_template('layout.html',title='FUCfadsfasdfk you')
 @app.route("/finviz")
+
 def finviz():
     data = display_finviz.showLeft()
-    return render_template('finviz.html', title='finviz toool' stocks=data)
-@app.route("/test")
+    return render_template('finviz.html', title='finviz toool', stocks=data)
+@app.route("/home")
 def hello():
     try:
         visits = redis.incr("counter")

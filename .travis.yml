@@ -17,7 +17,7 @@ notifications:
 jobs:
   include:
     - stage: test changes
-    script: python3 -m pytest -v
+      script: python3 -m pytest -v
   
 
 

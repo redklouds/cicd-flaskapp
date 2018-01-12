@@ -2,5 +2,5 @@ Flask
 Redis
 pytest
 
-libs/
+libs/finviz
 

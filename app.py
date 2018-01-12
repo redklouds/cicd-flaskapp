@@ -7,11 +7,11 @@ from engines import display_finviz
 # Connect to Redis
 #redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 @app.route("/")
 def index():
-    return render_template('layout.html',title='FUCk you')
+    return render_template('layout.html',title='FUCfadsfasdfk you')
 
 @app.route("/test")
 def hello():
@@ -33,4 +33,4 @@ def REST():
     d = display_finviz.showLeft()
     return jsonify(d)
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True,threaded=True)
+    app.run(host='0.0.0.0',port=5000,debug=True,threaded=True)

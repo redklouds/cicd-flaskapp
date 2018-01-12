@@ -1,8 +1,13 @@
 sudo: required
 services:
   - docker
+
 before_install:
   - echo BEfore install
+  language: python
+  python:
+    - "3.6"
+    - pip3 install -r requirements.txt
 notifications:
   slack: 
     rooms:

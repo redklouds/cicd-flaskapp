@@ -4,3 +4,4 @@ pytest
 libs/
 requests
 bs4
+lxml

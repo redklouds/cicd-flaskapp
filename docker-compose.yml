@@ -60,18 +60,18 @@ services:
     command: redis-server --appendonly yes
     networks:
       - webnet
-  stockminer:
-    container_name: stock_miner
-    image: redklouds/stock_miner:latest
-    deploy:
-      #replicas: 4
-      restart_policy:
-        condition: on-failure
-    environment:
-      - PYTHONBUFFERED=0
+#  stockminer:
+#    container_name: stock_miner
+#    image: redklouds/stock_miner:latest
+#    deploy:
+#      #replicas: 4
+#      restart_policy:
+#        condition: on-failure
+#    environment:
+#      - PYTHONBUFFERED=0
     #volumes:
     #  - /home/redklouds/data:/data
-    command: -u stock_miner.py
+#    command: -u stock_miner.py
   portainer:
     image: portainer/portainer
     container_name: fuckPortainer

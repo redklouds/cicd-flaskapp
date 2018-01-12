@@ -6,7 +6,7 @@
 # Postcondition:
 #------------------------------------------------------------------------------
 # Creation Date: January 12, 2018
-# Last Modified: Fri 12 Jan 2018 06:33:39 AM UTC
+# Last Modified: Fri 12 Jan 2018 08:53:07 AM UTC
 ###############################################################################
 
 
@@ -15,4 +15,5 @@ from finviz import FinViz
 def showLeft():
 
     x = FinViz()
-    return x
+    print(x)
+    return x.getTrends()

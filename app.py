@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify, render_template
 from redis import Redis, RedisError
 import os
 import socket
@@ -22,8 +22,11 @@ def hello():
            "<b>Visits:</b> {visits}<b>FINALLY</b>"\
            "<br><i>message from the engine api</i> <h1> %s </h1><br> scaling..\
            systems is fun!!<br> here's a display of another engine \
-           %s" % (data, finviz_data)
+           %s" % (data, jsonify(finviz_data))
     return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
-
+@app.route("/REST")
+def REST():
+    d = display_finviz.showLeft()
+    return jsonify(d)
 if __name__ == "__main__":
     app.run(host='0.0.0.0',threaded=True)

@@ -5,6 +5,7 @@ Status](https://travis-ci.org/redklouds/cicd-flaskapp.svg?branch=master)](https:
 Description: Here we have a example of a python flask *complete* continuous
 Integration continuous deployment pipline, the features and technologies used
 are:
+---
 1. Docker 
 2. Docker swarm
 3. Docker Hub
@@ -14,6 +15,8 @@ are:
 8. Jinja2
 9. Sherperd 
 10. Git
+---
+
 The pipline starts at our local development system , cloning the git repo we
 begin the development, as we develop we can branch to feature branches or stay
 with master, changing the code base and checking the features on our local

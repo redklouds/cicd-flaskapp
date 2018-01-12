@@ -30,8 +30,10 @@ def hello():
            "<b>Visits:</b> {visits}<b>FINALLY</b>"\
            "<br><i>message from the engine api</i> <h1> %s </h1><br> scaling..\
            systems is fun!!<br> here's a display of another engine \
-           %s" % (data, jsonify(finviz_data))
-    return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
+           %s" % (data)
+    return\
+    render_template('hello.html',hostName=socket.gethostname(),visits=visits,msg1=data)
+    #return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
 @app.route("/REST")
 def REST():
     d = display_finviz.showLeft()

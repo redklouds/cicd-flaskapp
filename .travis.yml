@@ -26,4 +26,6 @@ after_script:
   - docker build -t test .
   - docker run -d --name test test
   - docker ps | grep -q test
-
+after_success:
+  - echo "Successfully tested docker build, pushing new image to repo now..."
+  - .travis/deploy_dockerhub.sh

@@ -2,8 +2,8 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - echo BEfore install
+#before_install:
+#  - echo BEfore install
 language: python
 python:
   - "3.6"
@@ -22,12 +22,14 @@ notifications:
 jobs:
   include:
     - stage: test changes
-      before_script:
-        - echo "this is before the test are run"
+      #before_script:
+      #  - echo "this is before the test are run"
 
-      script: python3 -m pytest -v
-      after_script:
-        - echo "do this after the scriupt is run"
+      script: 
+        - python3 -m pytest -v
+        - echo "FUCKING a"
+      #after_script:
+      #  - echo "do this after the scriupt is run"
 
 
 

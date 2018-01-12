@@ -24,16 +24,10 @@ def hello():
     except RedisError:
         visits = "<i>cannot connect to Redis, counter disa1bled</i>"
     data = display_text.generate_buzz()
-    finviz_data = display_finviz.showLeft()
-    html = "<h3>Hello this is a dockerlized FULL Continous integrated pipline</h3>" \
-           "<b>Hostname:</b> {hostname}<br/>" \
-           "<b>Visits:</b> {visits}<b>FINALLY</b>"\
-           "<br><i>message from the engine api</i> <h1> %s </h1><br> scaling..\
-           systems is fun!!<br> here's a display of another engine \
-           %s" % (data)
     return\
     render_template('hello.html',hostName=socket.gethostname(),visits=visits,msg1=data)
     #return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), visits=visits)
+
 @app.route("/REST")
 def REST():
     d = display_finviz.showLeft()

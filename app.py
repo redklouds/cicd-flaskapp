@@ -5,7 +5,7 @@ import socket
 from engines import display_text
 from engines import display_finviz
 # Connect to Redis
-#redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
+redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
 app = Flask(__name__, template_folder='templates')
 
@@ -15,7 +15,7 @@ def index():
 @app.route("/finviz")
 def finviz():
     data = display_finviz.showLeft()
-    return render_template('finviz.html', stocks=data)
+    return render_template('finviz.html', title='finviz toool' stocks=data)
 @app.route("/test")
 def hello():
     try:
@@ -36,4 +36,4 @@ def REST():
     d = display_finviz.showLeft()
     return jsonify(d)
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=5000,debug=True,threaded=True)
+    app.run(host='0.0.0.0',port=5000,debug=False,threaded=True)

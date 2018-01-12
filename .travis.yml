@@ -34,7 +34,7 @@ script:
 after_script:
   jobs:
     include:
-      - build docker image
+      - stage: build docker image
       install:
         - docker build -t redklouds/$TRAVIS_REPO_SLUG .
         - docker run -d -rm --name test redklouds/$TRAVIS_REPO_SLUG

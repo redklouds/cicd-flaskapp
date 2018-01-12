@@ -28,4 +28,4 @@ after_script:
   - docker ps | grep -q test
 after_success:
   - echo "Successfully tested docker build, pushing new image to repo now..."
-  - .travis/deploy_dockerhub.sh
+  - sh .travis/deploy_dockerhub.sh

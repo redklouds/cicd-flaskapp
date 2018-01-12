@@ -22,5 +22,8 @@ notifications:
 
 script: python3 -m pytest -v
 
+after_script:
+  - docker build -t test .
+  - docker run -d --name test test
 
 

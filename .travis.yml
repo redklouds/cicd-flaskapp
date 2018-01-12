@@ -25,9 +25,7 @@ jobs:
       #before_script:
       #  - echo "this is before the test are run"
 
-      script: 
-        - python3 -m pytest -v
-        - echo "FUCKING a"
+      script: python3 -m pytest -v
       #after_script:
       #  - echo "do this after the scriupt is run"
 

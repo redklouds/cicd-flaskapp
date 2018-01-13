@@ -8,10 +8,11 @@ continuous integration pipline from development to deployment to a docker swarm
 hosted on http://lydanny.com. for a live example(hopefully still running since I
 have student credits)
 
-http://lydanny.com:6969
-http://lydanny.com:6969/finviz
-http://lydanny.com:6969/hello
-http://lydanny.com:6969/REST
+* http://lydanny.com:6969
+* http://lydanny.com:6969/finviz
+* http://lydanny.com:6969/hello
+* http://lydanny.com:6969/REST
+
 Description: Here we have a example of a python flask *complete* continuous
 Integration continuous deployment pipline, the features and technologies used
 are:

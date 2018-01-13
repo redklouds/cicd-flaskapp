@@ -1,23 +1,22 @@
 from flask import Flask, jsonify, render_template
 from redis import Redis, RedisError
-import os
-import socket
-from engines import display_text
-from engines import display_finviz
+import os, socket
+from engines import display_text, display_finviz
 # Connect to Redis
 redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
 app = Flask(__name__, template_folder='templates')
 
-@app.route("/")
+@app.route("/hello")
 def index():
-    return render_template('layout.html',title='FUCfadsfasdfk you')
-@app.route("/finviz")
+    return render_template('layout.html',title='This is a test string')
 
+@app.route("/finviz")
 def finviz():
     data = display_finviz.showLeft()
     return render_template('finviz.html', title='finviz toool', stocks=data)
-@app.route("/home")
+
+@app.route("/")
 def hello():
     try:
         visits = redis.incr("counter")
@@ -32,5 +31,7 @@ def hello():
 def REST():
     d = display_finviz.showLeft()
     return jsonify(d)
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000,debug=False,threaded=True)

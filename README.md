@@ -1,7 +1,17 @@
 # cicd-flaskapp
 [![Build
 Status](https://travis-ci.org/redklouds/cicd-flaskapp.svg?branch=master)](https://travis-ci.org/redklouds/cicd-flaskapp)
+---
+In this project I explore making my own python package and installing it as a
+dependecy for this flask app, I also give a basic example of a complete
+continuous integration pipline from development to deployment to a docker swarm
+hosted on http://lydanny.com. for a live example(hopefully still running since I
+have student credits)
 
+http://lydanny.com:6969
+http://lydanny.com:6969/finviz
+http://lydanny.com:6969/hello
+http://lydanny.com:6969/REST
 Description: Here we have a example of a python flask *complete* continuous
 Integration continuous deployment pipline, the features and technologies used
 are:
@@ -15,6 +25,7 @@ are:
 8. Jinja2
 9. Sherperd 
 10. Git
+11. redis
 ---
 
 The pipline starts at our local development system , cloning the git repo we

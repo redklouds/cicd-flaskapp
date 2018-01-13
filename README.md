@@ -13,6 +13,10 @@ have student credits)
 * http://lydanny.com:6969/hello
 * http://lydanny.com:6969/REST
 
+If you also want to see the condition of the swarm check out
+
+* http://lydanny.com:8080
+
 Description: Here we have a example of a python flask *complete* continuous
 Integration continuous deployment pipline, the features and technologies used
 are:

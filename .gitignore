@@ -9,3 +9,4 @@ t.sh
 pushToGit.sh
 __pycache__/*
 *.backup
+.pyc

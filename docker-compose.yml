@@ -74,15 +74,23 @@ services:
 #    command: -u stock_miner.py
   portainer:
     image: portainer/portainer
-    container_name: fuckPortainer
+    container_name: portainer
     ports:
       - "9000:9000"
+    #  - 443:9000
     deploy:
       placement:
         constraints: [node.role == manager]
     volumes:
+    #many times you need to make the volume folder if its on a permission
+    #denied location such as /var/ this will throw a config file error
+    #and the container will not run if you do not have the folder/volume
+    #created on the host machine
       - /var/run/docker.sock:/var/run/docker.sock
       - /portainer-data/portainer
+      - /var/portainer-data:/data
+      - ~/local-certs:/certs
+  #  command: -H unix:///var/run/docker.sock --ssl --sslcert /var/certs/portainer.crt --sslkey /var/certs/portainer.key
     command: -H unix:///var/run/docker.sock
   sheperd:
     image: mazzolino/shepherd

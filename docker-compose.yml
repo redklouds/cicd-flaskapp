@@ -5,15 +5,14 @@ services:
     #image: redklouds/getstarted:part5
     image: redklouds/cicd-flaskapp:latest
     deploy:
-      replicas: 4
+      #replicas: 12
+      mode: global
       restart_policy:
         condition: on-failure
       resources:
         limits:
           cpus: "0.1"
           memory: 50M
-#    expose:
-#      - 6969
     environment:
       - "VIRTUAL_HOST=sexon.lydanny.com"
     ports:
@@ -79,6 +78,7 @@ services:
       - "9000:9000"
     #  - 443:9000
     deploy:
+      replicas: 1
       placement:
         constraints: [node.role == manager]
     volumes:
@@ -87,11 +87,9 @@ services:
     #and the container will not run if you do not have the folder/volume
     #created on the host machine
       - /var/run/docker.sock:/var/run/docker.sock
-      - /portainer-data/portainer
       - /var/portainer-data:/data
-      - ~/local-certs:/certs
-  #  command: -H unix:///var/run/docker.sock --ssl --sslcert /var/certs/portainer.crt --sslkey /var/certs/portainer.key
     command: -H unix:///var/run/docker.sock
+
   sheperd:
     image: mazzolino/shepherd
     container_name: shep
@@ -103,5 +101,17 @@ services:
       - SLEEP_TIME=1m
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+  chatapp:
+    image: redklouds/cicd-nodejschat
+    ports:
+      - "5757:5000"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == manager]
+    volumes:
+      - /home/redklouds/nodeJSdata:/var/nodeJSData
 networks:
   webnet:
